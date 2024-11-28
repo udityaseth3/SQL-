@@ -1,0 +1,31 @@
+                 #Assignment -1
+ create database company;        # created data base by name company
+ use company;                    # we use  data base company
+ create table employees1(
+Id INT PRIMARY KEY auto_increment,
+name VARCHAR(100),
+position VARCHAR(100),                    # we created the table name - employees1  and we insert the headings  what we  want in table
+salary DECIMAL (10,2)  ,
+date_of_joining Date);
+ select * from employees1;            #  we use  this cmd to see weather  our table is created or  not
+ insert into employees1(Id,name,position,salary,date_of_joining)values
+ (1,"John Doe" ,  "Manager",  55000.00,   "2020-01-15"),                     # we use insert to insert the given data in the table
+ (2,"Jane Smith", "Developer", 48000.00, "2019-07-10"),
+ (3,"Alice Johnson","Designer", 45000.00, "2021-03-22"),
+( 4,"Bob Brown", "Developer", 50000.00, "2018-11-01");
+select*from employees1 where position = ("Developer");            # we  want  to see the data of developer so we  use this syntax here
+update employees1  set salary=46000.00 where name="Alice Johnson";  # here we use update syntax  to update the salary of a person name Alice johnson
+delete from employees1 where name="Bob Brown";                  # here we use delete syntax to delete the data of person  name bob brown
+select*from employees1;                                         # here we use the  syntax to check the table  that the update  we have done in the table is updated or not
+select*from employees1 where salary > 48000;                         # here we need use this syntax to get the data of person  whose salary is greater than 4800
+alter table employees1                                                # here  we use alter to add email_id coloum in table  just after date of joining
+add email_id varchar (100) after date_of_joining;
+update employees1  set email_id="john.doe@company.com" where name="John Doe";   # here we use update  to updte  email id  of a person  name john doe
+delete from employees1 where  email;                                           # her we use delete cmd to delete the extra column  email which i have made by mistakely
+select*from employees1 ;                 # here we use this cmd to check weather  my column  is deleted or not from my table                               
+select name , salary from employees1;       # her i use this syntax to get the data of all person name with salary in the table
+select*from employees1 count  where date_of_joining > "2020-01-01";    # here we use this syntax  to get all data  of the  from table where conditions  is that   date is greater than  1 jan 2020
+select*from employees1 order by salary desc; # here we use this syntax to arrange data of salary in descending order
+alter table employees1
+drop column email_id;   # here we use drop cmd to drop the column  of email_id from the table
+select* from employees1 where salary=(select  max(salary) from employees1);           # here we get the data of person whose has the maximum salary in table
